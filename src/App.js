@@ -9,12 +9,11 @@ function App() {
 
   const [movies, setMovies] = useState();
 
-  const getMovies = async () => {
+  const getMovies = async() => {
 
     try {
 
-      const response = await api.get("api/v1/movies");
-
+      const response = await api.get("/api/v1/movies");
       setMovies(response.data);
 
 
@@ -34,7 +33,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home movies={movies} />}></Route>
         </Route>
       </Routes>
     </div>
